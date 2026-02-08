@@ -1,8 +1,13 @@
 'use strict';
+
+// ---- Node compatibility shim ----
 if (typeof window === 'undefined') {
   global.window = global;
+  global.document = {
+    getElementById: function () { return null; },
+  };
 }
-
+// Load project code so globals exist for the tests
 if (typeof require === 'function') {
   require('./make-multi-filter.js');
   require('./template-processor.js');
