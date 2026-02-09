@@ -1,8 +1,11 @@
+
+// Import ESLint core configs and helpers
 import js from "@eslint/js";
 import globals from "globals";
-import { defineConfig } from "eslint/config";
+import { defineConfig } from "eslint/config"; 
 
-const baseConfig = {
+// Base ESLint configuration shared across files
+const baseConfig = { 
   plugins: { js },
   extends: ["js/recommended"],
   languageOptions: {
@@ -13,11 +16,14 @@ const baseConfig = {
   },
 };
 
-export default defineConfig([
+// Export the final ESLint configuration
+export default defineConfig([ 
+  // Apply base config to all JS module types
   {
     files: ["**/*.{js,mjs,cjs}"],
     ...baseConfig,
   },
+  // Override settings for standard JS files
   {
     files: ["**/*.js"],
     languageOptions: {
