@@ -7,6 +7,7 @@ if (typeof window === 'undefined') {
     getElementById: function () { return null; },
   };
 }
+
 // Load project code so globals exist for the tests
 if (typeof require === 'function') {
   require('./make-multi-filter.js');
@@ -34,6 +35,7 @@ if (typeof require === 'function') {
       if (!Array.isArray(a1) || !Array.isArray(a2) || (a1.length !== a2.length)) {
         return false;
       }
+      
       for (var i = 0; i < a1.length; i += 1) {
         if (a1[i] !== a2[i]) {
           return false;
@@ -100,6 +102,7 @@ if (typeof require === 'function') {
           console.error('filter function callback does not filter 3 correctly', result);
           p1Message = 'FAILURE';
         }
+        
         filterFuncTwo(function (item) {
           return item !== 1;
         }, function (callbackResult) {
